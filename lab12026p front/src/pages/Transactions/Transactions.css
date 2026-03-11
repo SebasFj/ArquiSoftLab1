@@ -1,0 +1,40 @@
+.transactions-container {
+  width: 800px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+input {
+  display: block;
+  margin-bottom: 8px;
+  padding: 8px;
+  width: 300px;
+}
+
+button {
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background-color: #f4f4f4;
+}
