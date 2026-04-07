@@ -7,7 +7,7 @@ on:
   #Trigger the workflow on push from the main branch
   push:
     paths:
-      - lab12026p back
+      - 'lab12026p back/**'
     branches:
       - main
 jobs:
@@ -16,6 +16,9 @@ jobs:
     name: Unit tests
     #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'lab12026p back'
     #Job's steps
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
