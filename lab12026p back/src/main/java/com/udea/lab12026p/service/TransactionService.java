@@ -7,6 +7,7 @@ import com.udea.lab12026p.repository.CustomerRepository;
 import com.udea.lab12026p.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,6 +20,7 @@ public class TransactionService {
     @Autowired
     private CustomerRepository customerRepository; // Para validar cuentas
 
+    @Transactional
     public TransactionDTO transferMoney(TransactionDTO transactionDTO) {
         // Validar que los números de cuenta no sean nulos
         if (transactionDTO.getSenderAccountNumber() == null || transactionDTO.getReceiverAccountNumber() == null) {

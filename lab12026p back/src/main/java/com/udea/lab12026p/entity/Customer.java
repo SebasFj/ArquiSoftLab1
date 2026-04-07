@@ -18,6 +18,8 @@ public class Customer {
     private String lastName;
     @Column(nullable = false)
     private Double balance;
+    @Version
+    private Long version;
 
     public Customer() {
     }
