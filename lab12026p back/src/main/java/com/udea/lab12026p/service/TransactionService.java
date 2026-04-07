@@ -76,6 +76,6 @@ public class TransactionService {
             dto.setAmount(transaction.getAmount());
             dto.setTimestamp(transaction.getTimestamp());
             return dto;
-        }).collect(Collectors.toList());
+        }).toList();
     }
 }

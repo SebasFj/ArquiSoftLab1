@@ -2,7 +2,6 @@ package com.udea.lab12026p.controller;
 
 import com.udea.lab12026p.dto.TransactionDTO;
 import com.udea.lab12026p.service.TransactionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
