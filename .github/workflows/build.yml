@@ -7,7 +7,7 @@ on:
   #Trigger the workflow on push from the main branch
   push:
     paths:
-      - lab12026p back
+      - 'lab12026p back/**'
     branches:
       - main
 jobs:
