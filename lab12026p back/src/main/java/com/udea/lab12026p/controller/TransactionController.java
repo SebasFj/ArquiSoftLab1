@@ -13,8 +13,8 @@ import java.util.List;
 @RequestMapping(value="/api/transactions", produces = "application/json")
 public class TransactionController {
 
-    @Autowired
-    private TransactionService transactionService;
+
+    private TransactionService transactionService = new TransactionService();
 
 
     @PostMapping

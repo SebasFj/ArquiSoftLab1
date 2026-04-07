@@ -32,11 +32,9 @@ public class TransactionService {
                 .orElseThrow(() -> new IllegalArgumentException("La cuenta del remitente no existe."));
         Customer receiver = customerRepository.findByAccountNumber(transactionDTO.getReceiverAccountNumber())
                 .orElseThrow(() -> new IllegalArgumentException("La cuenta del receptor no existe."));
-//    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sender not found"));
         // Validar que el remitente tenga saldo suficiente
         if (sender.getBalance() < transactionDTO.getAmount()) {
             throw new IllegalArgumentException("Saldo insuficiente en la cuenta del remitente.");
-            //throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Insufficient balance");
         }
 
         // Realizar la transferencia
