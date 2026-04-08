@@ -7,7 +7,7 @@ on:
   #Trigger the workflow on push from the main branch
   push:
     paths:
-      - 'lab12026p back/**'
+      - 'lab12026p-back/**'
     branches:
       - main
 jobs:
@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 'lab12026p back'
+        working-directory: 'lab12026p-back'
     #Job's steps
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 'lab12026p back'
+        working-directory: 'lab12026p-back'
     #Job's steps
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
@@ -90,7 +90,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: 'lab12026p back'
+        working-directory: 'lab12026p-back'
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
       - uses: actions/checkout@v1
