@@ -6,3 +6,4 @@
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=SebasFj_ArquiSoftLab1&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=SebasFj_ArquiSoftLab1)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=SebasFj_ArquiSoftLab1&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=SebasFj_ArquiSoftLab1)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=SebasFj_ArquiSoftLab1&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=SebasFj_ArquiSoftLab1)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=SebasFj_ArquiSoftLab1&metric=coverage)](https://sonarcloud.io/summary/new_code?id=SebasFj_ArquiSoftLab1)
