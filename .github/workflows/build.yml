@@ -126,7 +126,7 @@ jobs:
           image: sebasfj95/arqui_lab12
           tags: latest
           registry: docker.io
-          directory: "lab12026p back"
+          directory: lab12026p-back
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
