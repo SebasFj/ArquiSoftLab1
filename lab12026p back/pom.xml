@@ -146,7 +146,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>Lab12026p</finalName>
+		<finalName>lab12026p</finalName>
 	</build>
 
 </project>
