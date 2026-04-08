@@ -127,7 +127,7 @@ jobs:
           tags: latest
           registry: docker.io
           dockerfile: "lab12026p back/Dockerfile"
-          context: "lab12026p back"
+          directory: "lab12026p back"
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
