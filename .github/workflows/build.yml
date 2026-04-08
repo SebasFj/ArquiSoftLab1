@@ -127,7 +127,7 @@ jobs:
           tags: latest
           registry: docker.io
           directory: lab12026p-back
-          dockerfile: Dockerfile
+          dockerfile: lab12026p-back/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
