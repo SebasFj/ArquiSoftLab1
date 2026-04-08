@@ -1,9 +1,12 @@
 package com.udea.lab12026p;
 
+import com.udea.lab12026p.dto.CustomerDTO;
 import com.udea.lab12026p.dto.TransactionDTO;
 import com.udea.lab12026p.entity.Customer;
+import com.udea.lab12026p.entity.Transaction;
 import com.udea.lab12026p.repository.CustomerRepository;
 import com.udea.lab12026p.repository.TransactionRepository;
+import com.udea.lab12026p.service.CustomerService;
 import com.udea.lab12026p.service.TransactionService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -26,6 +30,8 @@ class Lab12026pApplicationTests {
 
 	@Autowired
 	private TransactionRepository transactionRepository;
+    @Autowired
+    private CustomerService customerService;
 
 	@BeforeEach
 	void setUp() {
@@ -147,5 +153,39 @@ class Lab12026pApplicationTests {
 		assertTrue(caso1 || caso2,
 				"Race condition detectado: estado inconsistente -> sender="
 						+ senderBalance + ", receiver=" + receiverBalance);
+	}
+
+	@Test
+	void createTransactionsTest(){
+
+		CustomerDTO newCustomerDTO = new CustomerDTO();
+		newCustomerDTO.setAccountNumber("A3");
+		newCustomerDTO.setBalance(5000.0);
+		newCustomerDTO.setFirstName("Sebas");
+		newCustomerDTO.setLastName("Florez");
+
+		customerService.createCustomer(newCustomerDTO);
+
+		TransactionDTO t1 = new TransactionDTO();
+		t1.setSenderAccountNumber("A3");
+		t1.setReceiverAccountNumber("A1");
+		t1.setAmount(500.0);
+
+		TransactionDTO t2 = new TransactionDTO();
+		t2.setSenderAccountNumber("A3");
+		t2.setReceiverAccountNumber("A2");
+		t2.setAmount(300.0);
+
+		TransactionDTO t3 = new TransactionDTO();
+		t3.setSenderAccountNumber("A1");
+		t3.setReceiverAccountNumber("A3");
+		t3.setAmount(500.0);
+
+		transactionService.transferMoney(t1);
+		transactionService.transferMoney(t2);
+		transactionService.transferMoney(t3);
+
+		List<Transaction> transactions = transactionRepository.findAll();
+		assertEquals(3,transactions.size());
 	}
 }
