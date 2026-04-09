@@ -188,4 +188,55 @@ class Lab12026pApplicationTests {
 		List<Transaction> transactions = transactionRepository.findAll();
 		assertEquals(3,transactions.size());
 	}
+
+	@Test
+	void cuentasNulas() {
+		TransactionDTO dto = new TransactionDTO();
+		dto.setAmount(100.0);
+
+		Exception e = assertThrows(IllegalArgumentException.class, () -> {
+			transactionService.transferMoney(dto);
+		});
+
+		assertEquals("Los números de cuenta del remitente y receptor son obligatorios.", e.getMessage());
+	}
+
+	@Test
+	void obtenerTransaccionesPorCuenta() {
+		TransactionDTO dto = new TransactionDTO();
+		dto.setSenderAccountNumber("A1");
+		dto.setReceiverAccountNumber("A2");
+		dto.setAmount(100.0);
+
+		transactionService.transferMoney(dto);
+
+		List<TransactionDTO> result = transactionService.getTransactionsForAccount("A1");
+
+		assertFalse(result.isEmpty());
+	}
+
+	@Test
+	void obtenerTodosLosClientes() {
+		List<CustomerDTO> customers = customerService.getAllCustomers();
+		assertEquals(2, customers.size());
+	}
+
+	@Test
+	void clienteNoExiste() {
+		assertThrows(RuntimeException.class, () -> {
+			customerService.getCustomerById(999L);
+		});
+	}
+
+	@Test
+	void customerDTOTest() {
+		CustomerDTO dto = new CustomerDTO();
+		dto.setId(1L);
+		dto.setFirstName("Test");
+
+		assertEquals(1L, dto.getId());
+		assertEquals("Test", dto.getFirstName());
+	}
+
+
 }
