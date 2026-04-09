@@ -230,12 +230,15 @@ class Lab12026pApplicationTests {
 
 	@Test
 	void customerDTOTest() {
-		CustomerDTO dto = new CustomerDTO();
-		dto.setId(1L);
-		dto.setFirstName("Test");
+		CustomerDTO dto = new CustomerDTO(
+			"Nuevo",
+			"Cliente",
+			"A5",
+			2500.0
+		);
 
-		assertEquals(1L, dto.getId());
-		assertEquals("Test", dto.getFirstName());
+		assertEquals("Nuevo", dto.getFirstName());
+		assertEquals(2500.0, dto.getBalance());
 	}
 
 
